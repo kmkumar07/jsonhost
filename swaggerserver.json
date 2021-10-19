@@ -1,0 +1,1243 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "",
+    "version": "1.0.0",
+    "title": "DIgital FrameWork"
+  },
+  "host": "digital-framework.swagger.io",
+  "basePath": "/v2",
+  "paths": {
+    "/product": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "Add a products to the framework",
+        "description": "",
+        "operationId": "addProduct",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Product object that needs to be added to the Framework",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/offer": {
+      "post": {
+        "tags": [
+          "Offer"
+        ],
+        "summary": "create  an offer",
+        "description": "",
+        "operationId": "createOffer",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "product object that needs to be added to the framwork",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Offer"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "offer not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/fetch-offer": {
+      "get": {
+        "tags": [
+          "Offer"
+        ],
+        "summary": "fetch  an offer",
+        "description": "",
+        "operationId": "fetch offer",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "product object that needs to be added to the framwork",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/requestParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Offer"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "offer not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/promotion": {
+      "post": {
+        "tags": [
+          "Promotion"
+        ],
+        "summary": "creata promotion",
+        "description": "",
+        "operationId": "create promotion",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "promtion  needs to be added to the product",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/productOfferingPromotion"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Offer"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "offer not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/userProfile": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "fetch user profile",
+        "description": "",
+        "operationId": "fetchProfile",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "fetch the user profile",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/requestParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/userProfile"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "offer not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/account": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "fetch account Detail",
+        "description": "",
+        "operationId": "fetchAccount",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "fetch the account profile",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/accountRequestParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/userAccount"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "offer not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "create user ",
+        "description": "",
+        "operationId": "createUSer",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "fetch the account Detail",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "offer not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/assign-subscription": {
+      "post": {
+        "tags": [
+          "usage and subscription"
+        ],
+        "summary": "assign product to the user",
+        "description": "",
+        "operationId": "createSubscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "contains offerID and principal identifier",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/subscription"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "offer not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/subscription": {
+      "get": {
+        "tags": [
+          "usage and subscription"
+        ],
+        "summary": "fetch subscription of the user",
+        "description": "",
+        "operationId": "fetch subscription",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/requestParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/subscriptionUser"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "offer not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/usage": {
+      "get": {
+        "tags": [
+          "usage and subscription"
+        ],
+        "summary": "fetch usage of the product",
+        "description": "",
+        "operationId": "fetch usage",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/requestParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/usage"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "offer not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/fetch-cart": {
+      "get": {
+        "tags": [
+          "cart"
+        ],
+        "summary": "fetch cart items",
+        "description": "",
+        "operationId": "fetch cart",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/requestParameter"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/cartResponse"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "offer not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/cart": {
+      "post": {
+        "tags": [
+          "cart"
+        ],
+        "summary": "add cart items",
+        "description": "",
+        "operationId": "cart actions",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cart"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "offer not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "productOfferingPromotion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "offerId": {
+          "type": "string"
+        },
+        "productOfferingPromotionType": {
+          "type": "string",
+          "description": "the type of the product",
+          "enum": [
+            "discountAmount",
+            "discountPercentage"
+          ]
+        },
+        "discountAmount": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/discountPrice"
+          }
+        },
+        "discountPercentage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/discountPercentage"
+          }
+        }
+      },
+      "xml": {
+        "name": "productOfferingPromotion"
+      }
+    },
+    "nameValuePair": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "productUsageCharacteristic": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string"
+        },
+        "characteristic": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/nameValuePair"
+          }
+        }
+      }
+    },
+    "price": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "format": "int64",
+          "example": 15
+        },
+        "currency": {
+          "type": "string",
+          "example": "USD"
+        },
+        "isActive": {
+          "type": "boolean",
+          "example": 1
+        }
+      }
+    },
+    "discountPrice": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "format": "int64",
+          "example": 15
+        },
+        "currency": {
+          "type": "string",
+          "example": "USD"
+        }
+      }
+    },
+    "discountPercentage": {
+      "type": "object",
+      "properties": {
+        "percentage": {
+          "type": "integer",
+          "format": "int64",
+          "example": 15
+        }
+      }
+    },
+    "Product": {
+      "type": "object",
+      "required": [
+        "name",
+        "productType"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "productType": {
+          "type": "string",
+          "description": "the type of the product",
+          "enum": [
+            "base",
+            "add-on"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "example": "easyWebinar"
+        },
+        "URI": {
+          "type": "string",
+          "example": "www.easywebinar.com"
+        },
+        "description": {
+          "type": "string",
+          "example": "EasyWebinar is a cloud-based webinar solution designed to help small to large businesses manage marketing strategies via live conferences and automated streaming of recorded presentations."
+        },
+        "retailRecommendedPrice": {
+          "type": "integer",
+          "format": "int64",
+          "example": 77
+        },
+        "variableCost": {
+          "type": "integer",
+          "format": "int64",
+          "example": 12
+        },
+        "productId": {
+          "type": "string"
+        },
+        "productRelation": {
+          "type": "string",
+          "example": "isParentOf"
+        },
+        "applicationType": {
+          "type": "string",
+          "description": "the type of the product",
+          "enum": [
+            "Application",
+            "API"
+          ]
+        },
+        "application": {
+          "type": "string",
+          "example": "easywebinar"
+        },
+        "loginService": {
+          "type": "string",
+          "example": "ory"
+        },
+        "api": {
+          "type": "string",
+          "example": "api name"
+        },
+        "url": {
+          "type": "string",
+          "description": "url of the particular api"
+        }
+      }
+    },
+    "Offer": {
+      "type": "object",
+      "required": [
+        "name",
+        "offerType"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "offerType": {
+          "type": "string",
+          "description": "the type of the product",
+          "enum": [
+            "base",
+            "add-on"
+          ]
+        },
+        "applicationType": {
+          "type": "string",
+          "description": "the type of the product",
+          "enum": [
+            "API",
+            "application"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "example": "easyWebinar"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "example": "EasyWebinar offer"
+        },
+        "price": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/price"
+          }
+        },
+        "currency": {
+          "type": "string",
+          "example": "USD"
+        },
+        "trialPeriod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/nameValuePair"
+          }
+        },
+        "gracePeriod": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/nameValuePair"
+          }
+        },
+        "isExpirable": {
+          "type": "boolean",
+          "example": 1
+        },
+        "isAutomaticRenewable": {
+          "type": "boolean",
+          "example": 0
+        },
+        "maxRenewCycle": {
+          "type": "integer",
+          "example": 5
+        },
+        "renewCycleUnit": {
+          "type": "string",
+          "example": "N.A"
+        },
+        "offeringCategory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/nameValuePair"
+          }
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/productUsageCharacteristic"
+          }
+        }
+      }
+    },
+    "userProfile": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "type": "string",
+          "example": "IJKL-1234-IJKL-1234"
+        },
+        "accountType": {
+          "type": "string",
+          "example": "billingAccount"
+        },
+        "involvementRoleAssociation": {
+          "type": "object",
+          "properties": {
+            "involvementRoleAssociationId": {
+              "type": "string",
+              "example": "POLA-3434-POLA-3434"
+            },
+            "type": {
+              "type": "string",
+              "example": "accountInvolvementRole"
+            },
+            "name": {
+              "type": "string",
+              "example": "contractual"
+            },
+            "value": {
+              "type": "string",
+              "example": "fullAuthority"
+            }
+          }
+        },
+        "product": {
+          "type": "object",
+          "properties": {
+            "productId": {
+              "type": "string",
+              "example": "POLA-3434-POLA-3434"
+            },
+            "productType": {
+              "type": "string",
+              "example": "application"
+            },
+            "name": {
+              "type": "string",
+              "example": "contractual"
+            },
+            "url": {
+              "type": "string",
+              "example": "www.easywebinar.com"
+            },
+            "description": {
+              "type": "string",
+              "example": "fullAuthority"
+            },
+            "involvementRoleAssociation": {
+              "type": "object",
+              "properties": {
+                "involvementRoleAssociationId": {
+                  "type": "string",
+                  "example": "POLA-3434-POLA-3434"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "productInvlovementRole || serviceInvolvementRole"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "contractual"
+                },
+                "value": {
+                  "type": "string",
+                  "example": "productOwner || serviceUser"
+                }
+              }
+            },
+            "application": {
+              "type": "object",
+              "properties": {
+                "applicationId": {
+                  "type": "string",
+                  "example": "APPL-3434-POLA-3434"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "easywebinar"
+                },
+                "url": {
+                  "type": "string",
+                  "example": "www.easywebinar.com"
+                }
+              }
+            }
+          }
+        }
+      },
+      "xml": {
+        "name": "Offer"
+      }
+    },
+    "userAccount": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "type": "string",
+          "example": "IJKL-1234-IJKL-1234"
+        },
+        "accountType": {
+          "type": "string",
+          "example": "billingAccount"
+        },
+        "involvementRoleAssociation": {
+          "type": "object",
+          "properties": {
+            "involvementRoleAssociationId": {
+              "type": "string",
+              "example": "POLA-3434-POLA-3434"
+            },
+            "type": {
+              "type": "string",
+              "example": "accountInvolvementRole"
+            },
+            "name": {
+              "type": "string",
+              "example": "contractual"
+            },
+            "value": {
+              "type": "string",
+              "example": "fullAuthority"
+            }
+          }
+        },
+        "product": {
+          "type": "object",
+          "properties": {
+            "productId": {
+              "type": "string",
+              "example": "POLA-3434-POLA-3434"
+            },
+            "productType": {
+              "type": "string",
+              "example": "application"
+            },
+            "name": {
+              "type": "string",
+              "example": "contractual"
+            },
+            "url": {
+              "type": "string",
+              "example": "www.easywebinar.com"
+            },
+            "description": {
+              "type": "string",
+              "example": "fullAuthority"
+            },
+            "involvementRoleAssociation": {
+              "type": "object",
+              "properties": {
+                "involvementRoleAssociationId": {
+                  "type": "string",
+                  "example": "POLA-3434-POLA-3434"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "productInvlovementRole"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "contractual"
+                },
+                "value": {
+                  "type": "string",
+                  "example": "productOwner"
+                }
+              }
+            },
+            "application": {
+              "type": "object",
+              "properties": {
+                "applicationId": {
+                  "type": "string",
+                  "example": "APPL-3434-POLA-3434"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "easywebinar"
+                },
+                "url": {
+                  "type": "string",
+                  "example": "www.easywebinar.com"
+                }
+              }
+            }
+          }
+        }
+      },
+      "xml": {
+        "name": "account"
+      }
+    },
+    "subscriptionUser": {
+      "type": "object",
+      "properties": {
+        "product": {
+          "type": "object",
+          "properties": {
+            "serviceId": {
+              "type": "string",
+              "example": "POLA-3434-POLA-3434"
+            },
+            "productId": {
+              "type": "string",
+              "example": "POLA-3434-POLA-3434"
+            },
+            "productType": {
+              "type": "string",
+              "example": "application"
+            },
+            "name": {
+              "type": "string",
+              "example": "contractual"
+            },
+            "url": {
+              "type": "string",
+              "example": "www.easywebinar.com"
+            },
+            "description": {
+              "type": "string",
+              "example": "fullAuthority"
+            },
+            "involvementRoleAssociation": {
+              "type": "object",
+              "properties": {
+                "involvementRoleAssociationId": {
+                  "type": "string",
+                  "example": "POLA-3434-POLA-3434"
+                },
+                "type": {
+                  "type": "string",
+                  "example": "serviceInvolvementRole"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "contractual"
+                },
+                "value": {
+                  "type": "string",
+                  "example": "serviceUser"
+                }
+              }
+            },
+            "application": {
+              "type": "object",
+              "properties": {
+                "applicationId": {
+                  "type": "string",
+                  "example": "APPL-3434-POLA-3434"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "easywebinar"
+                },
+                "url": {
+                  "type": "string",
+                  "example": "www.easywebinar.com"
+                }
+              }
+            }
+          }
+        }
+      },
+      "xml": {
+        "name": "account"
+      }
+    },
+    "user": {
+      "type": "object",
+      "required": [
+        "firstName",
+        "lastName",
+        "email"
+      ],
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "dob": {
+          "type": "string"
+        },
+        "companyName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "subscription": {
+      "type": "object",
+      "properties": {
+        "identityId": {
+          "type": "string"
+        },
+        "serviceId": {
+          "type": "string"
+        }
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "usageStatus": {
+          "type": "string"
+        },
+        "usageRemaining": {
+          "type": "string"
+        }
+      }
+    },
+    "cart": {
+      "type": "object",
+      "properties": {
+        "tenant": {
+          "type": "string"
+        },
+        "clientOrganisation": {
+          "type": "string"
+        },
+        "identityId": {
+          "type": "string"
+        },
+        "productOfferId": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "add",
+            "remove"
+          ]
+        }
+      }
+    },
+    "cartResponse": {
+      "type": "object",
+      "properties": {
+        "productOfferId": {
+          "type": "string"
+        },
+        "offerType": {
+          "type": "string"
+        },
+        "applicationType": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "identityId": {
+          "type": "string"
+        }
+      }
+    },
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "requestParameter": {
+      "type": "object",
+      "properties": {
+        "tenant": {
+          "type": "string",
+          "example": "softobiz"
+        },
+        "company": {
+          "type": "string",
+          "example": "easysuite"
+        },
+        "identityId": {
+          "type": "string",
+          "example": "email"
+        }
+      }
+    },
+    "accountRequestParameter": {
+      "type": "object",
+      "properties": {
+        "tenant": {
+          "type": "string",
+          "example": "softobiz"
+        },
+        "company": {
+          "type": "string",
+          "example": "easysuite"
+        },
+        "identityId": {
+          "type": "string",
+          "example": "email"
+        },
+        "InvolvementRole": {
+          "type": "string",
+          "example": "AccountInvolvementRole, ProductInvolvementRole"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
